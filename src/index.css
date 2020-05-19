@@ -1,19 +1,25 @@
 body {
+  background-image: url(./images/backgroundcity.jpeg);
+  background-size: cover;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Courier New', Courier, monospace;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: black;
   color: white;
+  height: 100vh;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.CharComp-Container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
 }

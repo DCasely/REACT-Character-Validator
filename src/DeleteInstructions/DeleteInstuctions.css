@@ -1,0 +1,11 @@
+.DeleteInstructions {
+  display: block;
+  text-align: center;
+  margin: 2rem;
+}
+
+.DeleteInstructions span {
+  color: red;
+  font-weight: 700;
+  border-bottom: 1px solid red;
+}

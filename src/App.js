@@ -1,11 +1,25 @@
 import React, { useState } from 'react';
+import Header from './Header/Header';
+import CharInput from './CharInput/CharInput';
 import ValidateLength from './ValidateLength/ValidateLength';
 import CharComponent from './CharComponent/CharComponent';
+import DeleteInstructions from './DeleteInstructions/DeleteInstructions';
 import './App.css';
 
 function App() {
-  const [count, setCount] = useState('0');
-  const [characterList, setCharacterList] = useState([]);
+  const [characterList, setCharacterList] = useState([
+    'V',
+    'a',
+    'l',
+    'i',
+    'd',
+    'a',
+    't',
+    'o',
+    'r',
+  ]);
+
+  const [count, setCount] = useState(characterList.length);
 
   function countLetters(e) {
     const characterInput = e.target.value;
@@ -24,26 +38,32 @@ function App() {
 
   if (count < 5) {
     validateMessage = 'Must Have More 5 Characters';
-  } else if (count >= 5 && count <= 10) {
-    validateMessage = 'Perfect You Have The Right Amount of Characters';
   } else if (count > 10) {
     validateMessage = 'Must Have Less Than 10 Characters';
   }
 
   return (
     <div>
-      <input onChange={countLetters} />
+      <Header />
 
-      <ValidateLength validate={validateMessage} />
+      <CharInput getInput={countLetters} characters={characterList.join('')} />
 
-      {characterList.map((character, index) => (
-        <CharComponent
-          id={index}
-          key={index}
-          character={characterList[index]}
-          delete={() => removeCharacter(index)}
-        />
-      ))}
+      <ValidateLength
+        validate={validateMessage ? validateMessage : 'ENTER YOUR CHARACTERS'}
+      />
+
+      <div className="CharComp-Container">
+        {characterList.map((character, index) => (
+          <CharComponent
+            id={index}
+            key={index}
+            character={characterList[index]}
+            delete={() => removeCharacter(index)}
+          />
+        ))}
+      </div>
+
+      <DeleteInstructions />
     </div>
   );
 }

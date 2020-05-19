@@ -4,7 +4,7 @@ import './CharComponent.css';
 function CharComponent(props) {
   return (
     <div className="CharComponent" onClick={props.delete}>
-      <h1>{props.character}</h1>
+      <p>{props.character}</p>
     </div>
   );
 }

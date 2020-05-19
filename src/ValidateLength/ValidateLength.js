@@ -1,12 +1,8 @@
 import React from 'react';
-// import App from '../App';
+import './ValidateLength.css';
 
 function ValidateLength(props) {
-  return (
-    <div>
-      <h1>Letter Count: {props.validate}</h1>
-    </div>
-  );
+  return <h2 className="ValidateLength">{props.validate}</h2>;
 }
 
 export default ValidateLength;
