@@ -1,24 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import ValidateLength from './ValidateLength/ValidateLength';
+import CharComponent from './CharComponent/CharComponent';
 import './App.css';
 
 function App() {
+  const [count, setCount] = useState('0');
+  const [characterList, setCharacterList] = useState('');
+
+  function countLetters(e) {
+    const characterInput = e.target.value;
+    const characterCount = e.target.value.length;
+
+    setCount(characterCount);
+    setCharacterList(characterInput.split(''));
+  }
+
+  // CHARACTERS LESS THAN 5 OR MORE THAN 10
+  let validateMessage = '';
+
+  if (count < 5) {
+    validateMessage = 'Must Have More 5 Characters';
+  } else if (count >= 5 && count <= 10) {
+    validateMessage = 'Perfect You Have The Right Amount of Characters';
+  } else if (count > 10) {
+    validateMessage = 'Must Have Less Than 10 Characters';
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <input onChange={countLetters} />
+
+      <ValidateLength validate={validateMessage} />
+
+      <CharComponent />
     </div>
   );
 }
