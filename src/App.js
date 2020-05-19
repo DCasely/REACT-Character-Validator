@@ -5,7 +5,7 @@ import './App.css';
 
 function App() {
   const [count, setCount] = useState('0');
-  const [characterList, setCharacterList] = useState('');
+  const [characterList, setCharacterList] = useState([]);
 
   function countLetters(e) {
     const characterInput = e.target.value;
@@ -13,6 +13,10 @@ function App() {
 
     setCount(characterCount);
     setCharacterList(characterInput.split(''));
+  }
+
+  function removeCharacter(index) {
+    setCharacterList(characterList.filter((character, idx) => idx !== index));
   }
 
   // CHARACTERS LESS THAN 5 OR MORE THAN 10
@@ -32,7 +36,14 @@ function App() {
 
       <ValidateLength validate={validateMessage} />
 
-      <CharComponent />
+      {characterList.map((character, index) => (
+        <CharComponent
+          id={index}
+          key={index}
+          character={characterList[index]}
+          delete={() => removeCharacter(index)}
+        />
+      ))}
     </div>
   );
 }
