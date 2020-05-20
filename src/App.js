@@ -20,6 +20,7 @@ function App() {
 
   function removeCharacter(index) {
     setCharacterList(characterList.filter((character, idx) => idx !== index));
+    setCount(characterList.length - 1);
   }
 
   function deleteAll() {
@@ -38,7 +39,7 @@ function App() {
   let validateMessage = '';
 
   if (count < min) {
-    validateMessage = `You Only Have ${count} Characters, You Need At Least ${min}`;
+    validateMessage = `You Only Have ${count} Characters, You Need At Least ${min}.`;
   }
 
   if (count >= min && count <= max) validateMessage = '';
