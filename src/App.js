@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Header from './Header/Header';
 import Input from './Input/Input';
-import ValidateLength from './ValidateLength/ValidateLength';
+import ValidateMessage from './ValidateMessage/ValidateMessage';
 import Output from './Output/Output';
 import DeleteInstructions from './DeleteInstructions/DeleteInstructions';
 import ResetButton from './ResetButton/ResetButton';
@@ -37,9 +37,13 @@ function App() {
   const max = 15;
   let validateMessage = '';
 
-  if (count < min) validateMessage = `Must Have At Least ${min} Characters`;
+  if (count < min)
+    validateMessage = `You Only Have ${count} Characters, You Need At Least ${min}`;
+
   if (count >= min && count <= max) validateMessage = '';
-  if (count > max) validateMessage = `Must Have Less Than ${max} Characters`;
+
+  if (count > max)
+    validateMessage = `You Have ${count} Characters, You Need Less Than ${max}.`;
 
   return (
     <div>
@@ -47,7 +51,7 @@ function App() {
 
       <Input getInput={countLetters} characters={characterList.join('')} />
 
-      <ValidateLength validate={validateMessage} />
+      <ValidateMessage validate={validateMessage} />
 
       <div className="CharComp-Container">
         {characterList.map((character, index) => (
