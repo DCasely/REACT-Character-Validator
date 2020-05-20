@@ -40,8 +40,7 @@ function App() {
   let validateMessage = '';
 
   if (count < min) {
-    // setValidateMessage('Must Have More 5 Characters');
-    validateMessage = 'Must Have Atleast 5 Characters';
+    validateMessage = 'Must Have At Least 5 Characters';
   } else if (count >= min && count <= max) {
     validateMessage = '';
   } else if (count > max) {
