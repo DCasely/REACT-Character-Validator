@@ -38,13 +38,9 @@ function App() {
   const max = 15;
   let validateMessage = '';
 
-  if (count < min) {
-    validateMessage = 'Must Have At Least 5 Characters';
-  } else if (count >= min && count <= max) {
-    validateMessage = '';
-  } else if (count > max) {
-    validateMessage = 'Must Have Less Than 16 Characters';
-  }
+  if (count < min) validateMessage = 'Must Have At Least 5 Characters';
+  if (count >= min && count <= max) validateMessage = '';
+  if (count > max) validateMessage = 'Must Have Less Than 16 Characters';
 
   return (
     <div>
