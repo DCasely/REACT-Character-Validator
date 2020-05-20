@@ -37,13 +37,15 @@ function App() {
   const max = 15;
   let validateMessage = '';
 
-  if (count < min)
+  if (count < min) {
     validateMessage = `You Only Have ${count} Characters, You Need At Least ${min}`;
+  }
 
   if (count >= min && count <= max) validateMessage = '';
 
-  if (count > max)
+  if (count > max) {
     validateMessage = `You Have ${count} Characters, You Need Less Than ${max}.`;
+  }
 
   return (
     <div>
