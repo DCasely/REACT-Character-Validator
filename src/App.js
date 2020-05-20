@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Header from './Header/Header';
-import CharInput from './CharInput/CharInput';
+import Input from './Input/Input';
 import ValidateLength from './ValidateLength/ValidateLength';
 import Output from './Output/Output';
 import DeleteInstructions from './DeleteInstructions/DeleteInstructions';
@@ -32,7 +32,7 @@ function App() {
     setCount(initialInput.split(''));
   }
 
-  // VALIDATE MESSAGE
+  // VALIDATOR RULES & MESSAGE
   const min = 5;
   const max = 15;
   let validateMessage = '';
@@ -45,7 +45,7 @@ function App() {
     <div>
       <Header />
 
-      <CharInput getInput={countLetters} characters={characterList.join('')} />
+      <Input getInput={countLetters} characters={characterList.join('')} />
 
       <ValidateLength validate={validateMessage} />
 
