@@ -56,7 +56,7 @@ function App() {
 
       <ValidateMessage validate={validateMessage} />
 
-      <div className="CharComp-Container">
+      <div className="CharacterList-Container">
         {characterList.map((character, index) => (
           <Output
             id={index}
