@@ -10,7 +10,6 @@ import './App.css';
 function App() {
   const initialInput = 'validator';
   const [characterList, setCharacterList] = useState(initialInput.split(''));
-
   const [count, setCount] = useState(characterList.length);
 
   function countLetters(e) {
