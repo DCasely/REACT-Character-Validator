@@ -1,11 +1,11 @@
 import React from 'react';
-import './DeleteInstuctions.css';
+import './DeleteInstructions.css';
 
-function DeleteInstructions() {
+function DeleteInstructions(props) {
   return (
     <p className="DeleteInstructions">
-      You Can <span>DELETE</span> characters by Clicking On Them Individually
-      Above.
+      You Can <span onClick={props.deleteAll}>DELETE</span> characters by
+      Clicking On Them Individually Above.
     </p>
   );
 }

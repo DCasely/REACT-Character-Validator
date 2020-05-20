@@ -4,42 +4,48 @@ import CharInput from './CharInput/CharInput';
 import ValidateLength from './ValidateLength/ValidateLength';
 import CharComponent from './CharComponent/CharComponent';
 import DeleteInstructions from './DeleteInstructions/DeleteInstructions';
+import ResetButton from './ResetButton/ResetButton';
 import './App.css';
 
 function App() {
-  const [characterList, setCharacterList] = useState([
-    'V',
-    'a',
-    'l',
-    'i',
-    'd',
-    'a',
-    't',
-    'o',
-    'r',
-  ]);
+  const initialInput = 'validator';
+  const [characterList, setCharacterList] = useState(initialInput.split(''));
 
   const [count, setCount] = useState(characterList.length);
 
   function countLetters(e) {
     const characterInput = e.target.value;
-    const characterCount = e.target.value.length;
-
-    setCount(characterCount);
+    const characterCount = characterInput.length;
     setCharacterList(characterInput.split(''));
+    setCount(characterCount);
   }
 
   function removeCharacter(index) {
     setCharacterList(characterList.filter((character, idx) => idx !== index));
   }
 
-  // CHARACTERS LESS THAN 5 OR MORE THAN 10
+  function deleteAll() {
+    setCharacterList([]);
+    setCount(0);
+  }
+
+  function resetValidator() {
+    setCharacterList(initialInput.split(''));
+    setCount(initialInput.split(''));
+  }
+
+  // VALIDATE MESSAGE
+  const min = 5;
+  const max = 15;
   let validateMessage = '';
 
-  if (count < 5) {
-    validateMessage = 'Must Have More 5 Characters';
-  } else if (count > 10) {
-    validateMessage = 'Must Have Less Than 10 Characters';
+  if (count < min) {
+    // setValidateMessage('Must Have More 5 Characters');
+    validateMessage = 'Must Have Atleast 5 Characters';
+  } else if (count >= min && count <= max) {
+    validateMessage = '';
+  } else if (count > max) {
+    validateMessage = 'Must Have Less Than 16 Characters';
   }
 
   return (
@@ -48,9 +54,7 @@ function App() {
 
       <CharInput getInput={countLetters} characters={characterList.join('')} />
 
-      <ValidateLength
-        validate={validateMessage ? validateMessage : 'ENTER YOUR CHARACTERS'}
-      />
+      <ValidateLength validate={validateMessage} />
 
       <div className="CharComp-Container">
         {characterList.map((character, index) => (
@@ -63,7 +67,9 @@ function App() {
         ))}
       </div>
 
-      <DeleteInstructions />
+      <DeleteInstructions deleteAll={deleteAll} />
+
+      <ResetButton reset={resetValidator} />
     </div>
   );
 }

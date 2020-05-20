@@ -9,3 +9,7 @@
   font-weight: 700;
   border-bottom: 1px solid red;
 }
+
+.DeleteInstructions span {
+  cursor: pointer;
+}

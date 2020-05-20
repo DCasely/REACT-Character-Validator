@@ -1,0 +1,25 @@
+.ResetButton {
+  display: block;
+  margin: auto;
+  font-size: 1.5rem;
+  font-family: 'Courier New', Courier, monospace;
+  text-transform: uppercase;
+  box-shadow: 1px 1px 5px 5px rgb(31, 15, 175);
+  background-color: rgb(31, 15, 175);
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+}
+
+.ResetButton:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.ResetButton:active {
+  transform: scale(1);
+}
+
+.ResetButton:focus {
+  outline: none;
+}
