@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import Header from './Header/Header';
 import CharInput from './CharInput/CharInput';
 import ValidateLength from './ValidateLength/ValidateLength';
-import CharComponent from './CharComponent/CharComponent';
+import Output from './Output/Output';
 import DeleteInstructions from './DeleteInstructions/DeleteInstructions';
 import ResetButton from './ResetButton/ResetButton';
-import './App.css';
 
 function App() {
   const initialInput = 'validator';
@@ -52,7 +51,7 @@ function App() {
 
       <div className="CharComp-Container">
         {characterList.map((character, index) => (
-          <CharComponent
+          <Output
             id={index}
             key={index}
             character={characterList[index]}

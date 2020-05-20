@@ -1,25 +1,17 @@
 body {
   background-image: url(./images/backgroundcity.jpeg);
   background-size: cover;
+  height: 100vh;
   margin: 0;
-  font-family: 'Courier New', Courier, monospace;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: 'Courier New', Courier, monospace;
   color: white;
-  height: 100vh;
 }
 
 .CharComp-Container {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.red {
-  color: red;
-}
-
-.green {
-  color: green;
 }
