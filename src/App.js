@@ -30,7 +30,7 @@ function App() {
 
   function resetValidator() {
     setCharacterList(initialInput.split(''));
-    setCount(initialInput.split(''));
+    setCount(initialInput.length);
   }
 
   // VALIDATOR RULES & MESSAGE
